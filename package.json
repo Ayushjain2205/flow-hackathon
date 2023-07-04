@@ -71,5 +71,8 @@
     "chakra/emotion/framer": "Replaceable with other common UI libraries",
     "next-auth": "Replaceable with any auth provider that supports OAuth 2.0",
     "openid-client": "Replaceable with any OAuth 2.0 client"
+  },
+  "engines": {
+    "node": "16.13.0"
   }
 }
