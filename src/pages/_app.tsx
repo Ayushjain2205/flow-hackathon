@@ -17,7 +17,7 @@ const App = ({ Component, pageProps: { session, auth, ...pageProps } }: AppProps
   return (
     <>
       <Head>
-        <title>Walletless Onboarding by Niftory</title>
+        <title>Aigent - By Entropy Labs</title>
       </Head>
       <SessionProvider session={session} refetchInterval={60 * 60}>
         <AuthProvider requireAuth={Component.requireAuth}>
