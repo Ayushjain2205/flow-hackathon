@@ -1,7 +1,8 @@
 import puppeteer from "puppeteer"
 
 export default async (req, res) => {
-  const url = "https://flowscan.org/account/0xecfad18ba9582d4f"
+  const { address } = req.query
+  const url = `https://flowscan.org/account/${address}`
 
   const address_selector =
     "#__next > main > div.bg-gray-50 > div.pt-20.sm\\:pt-24.md\\:pt-28.lg\\:pt-32.bg-white.overflow-auto > div.container.container-padding.w-full.m-auto.mb-6 > div.sm\\:inline-block > div.flex.flex-row.items-center.mb-6 > span"
@@ -25,7 +26,7 @@ export default async (req, res) => {
     const browser = await puppeteer.launch({ headless: "new" })
     const page = await browser.newPage()
 
-    await page.goto(url, { waitUntil: "networkidle0" })
+    await page.goto(`${url}/account/${address}`, { waitUntil: "networkidle0" })
 
     let address_value = null
     let transcations_value = null
@@ -48,7 +49,7 @@ export default async (req, res) => {
         transcations
       )
     } catch (error) {
-      console.log("Failed to scrape transcation count:", error)
+      console.log("Failed to scrape transaction count:", error)
     }
 
     try {
@@ -108,7 +109,7 @@ export default async (req, res) => {
     res.status(200).json({
       data: {
         address: address_value,
-        transcation_count: transcations_value,
+        transaction_count: transcations_value,
         wallet_age: wallet_age,
         portfolio_value: portfolio_value,
         transfer_count: transfer_count,
