@@ -14,9 +14,6 @@ export default async (req, res) => {
     const walletDetailsResponse = await fetch(walletDetailsUrl)
     const walletDetailsData = await walletDetailsResponse.json()
 
-    // Calculate Overall Health Score (Replace with your logic)
-    const overallHealthScore = 80
-
     // Extract Data from Account Details
     const {
       transaction_count: transactionCount,
@@ -28,6 +25,18 @@ export default async (req, res) => {
 
     // Extract Data from Wallet Details
     const { hotColdScore, topCurrencies, hasExposure } = walletDetailsData
+
+    // Calculate Weighted Hot/Cold Score
+    const weightedHotColdScore = hotColdScore * 0.6
+
+    // Calculate Weighted Portfolio Value
+    const numericPortfolioValue = parseFloat(portfolioValue.replace(/[^0-9.-]+/g, ""))
+    const weightedPortfolioValue = numericPortfolioValue * 0.4
+
+    // Calculate Overall Health Score
+    const weightedScore = weightedHotColdScore + weightedPortfolioValue
+    const maxWeightedScore = 300 // Maximum possible value for the weighted score
+    const overallHealthScore = ((weightedScore / maxWeightedScore) * 100).toFixed()
 
     // Prepare Response Object
     const response = {
