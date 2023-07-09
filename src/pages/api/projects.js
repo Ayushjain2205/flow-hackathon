@@ -10,7 +10,7 @@ export default async function handler(req, res) {
     const projects = await page.evaluate(() => {
       const projectDivs = Array.from(document.querySelectorAll(".item-card-excerpts-project-page"))
 
-      return projectDivs.map((projectDiv) => {
+      return projectDivs.slice(0, 10).map((projectDiv) => {
         const imageElement = projectDiv.querySelector(".image-31")
         const nameElement = projectDiv.querySelector(".name-list-project-page")
         const descriptionElement = projectDiv.querySelector(".ellipsis")
