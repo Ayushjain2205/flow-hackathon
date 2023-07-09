@@ -43,7 +43,7 @@ export default async (req, res) => {
       overallHealthScore,
       hotColdScore,
       portfolioValue,
-      tableData,
+      topNFTs: tableData,
       topCurrencies,
       transferCount,
       transactionCount,
