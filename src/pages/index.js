@@ -47,7 +47,7 @@ const HomePage = () => {
           </div>
         </div>
       </div>
-      <div className="flex flex-row">
+      <div className="flex flex-row gap-[64px]">
         <div className="flex flex-col gap-[32px]">
           {/* Collapse */}
           <div className="collapse bg-base-200 w-[310px] rounded-[18px]">
@@ -109,7 +109,14 @@ const HomePage = () => {
             </div>
           </div>
         </div>
-        <div className="flex flex-column"></div>
+        <div className="flex flex-col gap-[24px]">
+          <p className="text-[32px] font-bold">What may I do for you?</p>
+          <input
+            type="text"
+            placeholder="Type here..."
+            class="border-0 outline-none bg-transparent text-[32px] font-bold"
+          />
+        </div>
       </div>
     </div>
   )
