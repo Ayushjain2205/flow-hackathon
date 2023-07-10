@@ -1,6 +1,37 @@
-import React from "react"
+import React, { useState, useRef, useEffect } from "react"
 
 const HomePage = () => {
+  const [inputValue, setInputValue] = useState("")
+  const inputRef = useRef(null)
+
+  useEffect(() => {
+    const handleKeyPress = (event) => {
+      const { key, shiftKey, altKey, ctrlKey, metaKey } = event
+      const modifierKeysPressed = shiftKey || altKey || ctrlKey || metaKey
+
+      if (!inputRef.current || modifierKeysPressed || key === "Escape" || key === "Tab") {
+        return
+      }
+
+      event.preventDefault()
+
+      if (key === "Enter") {
+        console.log(inputRef.current.value)
+      } else if (key === "Backspace") {
+        setInputValue((prevValue) => prevValue.slice(0, -1))
+      } else {
+        setInputValue((prevValue) => prevValue + key)
+      }
+
+      inputRef.current.focus()
+    }
+
+    document.addEventListener("keydown", handleKeyPress)
+
+    return () => {
+      document.removeEventListener("keydown", handleKeyPress)
+    }
+  }, [])
   return (
     <div className="min-h-screen px-[32px] py-[24px]">
       <div className="navbar mb-[42px] p-0">
@@ -114,7 +145,10 @@ const HomePage = () => {
           <input
             type="text"
             placeholder="Type here..."
-            className="border-0 outline-none bg-transparent text-[32px] font-bold"
+            className="border-0 text-[#262626] text-opacity-50 outline-none bg-transparent text-[32px] font-bold"
+            value={inputValue}
+            onChange={(event) => setInputValue(event.target.value)}
+            ref={inputRef}
           />
         </div>
       </div>
