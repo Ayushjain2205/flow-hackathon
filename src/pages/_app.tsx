@@ -8,6 +8,7 @@ import theme from "../lib/chakra-theme"
 import Head from "next/head"
 import { NiftoryClientProvider } from "graphql/niftoryClientProvider"
 import { NiftoryWalletInitializer } from "@components/NiftoryWalletInitializer"
+import "./global.css"
 
 type AppProps<P = {}> = NextAppProps<P> & {
   Component: ComponentWithAuth
