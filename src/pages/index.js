@@ -24,9 +24,9 @@ const HomePage = () => {
                 <path
                   d="M6 9L12 15L18 9"
                   stroke="black"
-                  stroke-width="2"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
+                  strokeWidth="2"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
                 />
               </svg>
             </label>
@@ -95,16 +95,16 @@ const HomePage = () => {
             </div>
             <div className="collapse-content bg-white">
               <div className="h-[60px] py-[20px]">
-                <p className="text-[16px]">Know wallet health </p>
+                <p className="text-[16px]">Know wallet health</p>
               </div>
               <div className="h-[60px] py-[20px]">
-                <p className="text-[16px]">BUY A NFT </p>
+                <p className="text-[16px]">BUY A NFT</p>
               </div>
               <div className="h-[60px] py-[20px]">
-                <p className="text-[16px]">Send FLOW </p>
+                <p className="text-[16px]">Send FLOW</p>
               </div>
               <div className="h-[60px] py-[20px]">
-                <p className="text-[16px]">Set budget for scouting </p>
+                <p className="text-[16px]">Set budget for scouting</p>
               </div>
             </div>
           </div>
@@ -114,7 +114,7 @@ const HomePage = () => {
           <input
             type="text"
             placeholder="Type here..."
-            class="border-0 outline-none bg-transparent text-[32px] font-bold"
+            className="border-0 outline-none bg-transparent text-[32px] font-bold"
           />
         </div>
       </div>
