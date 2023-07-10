@@ -2,7 +2,9 @@ import React, { useState, useRef, useEffect } from "react"
 
 const HomePage = () => {
   const [inputValue, setInputValue] = useState("")
+  const [enteredValues, setEnteredValues] = useState([])
   const inputRef = useRef(null)
+  const messagesRef = useRef(null)
 
   useEffect(() => {
     const handleKeyPress = (event) => {
@@ -16,7 +18,12 @@ const HomePage = () => {
       event.preventDefault()
 
       if (key === "Enter") {
-        console.log(inputRef.current.value)
+        const newValue = inputRef.current.value.trim()
+        if (newValue !== "") {
+          setEnteredValues((prevValues) => [...prevValues, newValue])
+          setInputValue("")
+        }
+        setInputValue("")
       } else if (key === "Backspace") {
         setInputValue((prevValue) => prevValue.slice(0, -1))
       } else {
@@ -32,6 +39,17 @@ const HomePage = () => {
       document.removeEventListener("keydown", handleKeyPress)
     }
   }, [])
+
+  useEffect(() => {
+    scrollToBottom()
+  }, [enteredValues])
+
+  const scrollToBottom = () => {
+    if (messagesRef.current) {
+      messagesRef.current.scrollTop = messagesRef.current.scrollHeight
+    }
+  }
+
   return (
     <div className="min-h-screen px-[32px] py-[24px]">
       <div className="navbar mb-[42px] p-0">
@@ -142,14 +160,23 @@ const HomePage = () => {
         </div>
         <div className="flex flex-col gap-[24px]">
           <p className="text-[32px] font-bold">What may I do for you?</p>
-          <input
-            type="text"
-            placeholder="Type here..."
-            className="border-0 text-[#262626] text-opacity-50 outline-none bg-transparent text-[32px] font-bold"
-            value={inputValue}
-            onChange={(event) => setInputValue(event.target.value)}
-            ref={inputRef}
-          />
+          <div className="messages h-[36px] overflow-auto no-scrollbar" ref={messagesRef}>
+            <div className="entered-values transition-opacity ">
+              {enteredValues.map((value, index) => (
+                <div key={index} className="entered-value">
+                  {value}
+                </div>
+              ))}
+            </div>
+            <input
+              type="text"
+              placeholder="Type here..."
+              className="border-0 text-[#262626] text-opacity-50 outline-none bg-transparent text-2xl font-bold"
+              value={inputValue}
+              onChange={(event) => setInputValue(event.target.value)}
+              ref={inputRef}
+            />
+          </div>
         </div>
       </div>
     </div>
