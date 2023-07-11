@@ -29,10 +29,10 @@ export default async function handler(req, res) {
     await browser.close()
 
     res.status(200).json({
-      volume24h,
-      totalVolume,
-      totalTransactions,
-      flowUSD,
+      "Volume(24h)": volume24h,
+      "Total Volume": totalVolume,
+      "Total Transactions": totalTransactions,
+      "FLOW/USD": flowUSD,
     })
   } catch (error) {
     console.error("Error scraping element:", error)

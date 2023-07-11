@@ -1,5 +1,6 @@
 import React, { useState, useRef, useEffect } from "react"
 import Switch from "../components/Switch"
+import Realtime from "../components/Realtime"
 
 const HomePage = () => {
   const [inputValue, setInputValue] = useState("")
@@ -70,6 +71,7 @@ const HomePage = () => {
         </div>
         <div className="flex-none">
           <div className="flex flex-row gap-[24px]">
+            <Realtime />
             <Switch />
             <div className="dropdown dropdown-end">
               <label
