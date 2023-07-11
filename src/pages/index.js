@@ -193,12 +193,45 @@ const HomePage = () => {
               ref={inputRef}
             />
           </div>
+          <div className="output"></div>
         </div>
       </div>
-      <div
-        className="w-[87px] h-[87px] bg-[#262626] rounded-full fixed bottom-[27px] right-[42px] cursor-pointer"
-        onClick={handleToggle}
-      ></div>
+      <div className="flex flex-row gap-[16px] fixed bottom-[24px] right-[32px]">
+        <div className="flex flex-col items-center justify-center h-[48px] w-[487px] rounded-[12px] bg-white text-[24px] text-[#262626] text-opacity-80 ">
+          What are the latest projects on Flow?
+        </div>
+        <button className="h-[48px] w-[194px] rounded-[12px] bg-transparent border-[#0FA958] border-[2px] text-[24px] text-[#0FA958] ">
+          Next prompt
+        </button>
+
+        <div
+          className="flex flex-col items-center justify-center w-[48px] h-[48px] bg-[#262626] rounded-full cursor-pointer"
+          onClick={handleToggle}
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="22"
+            height="22"
+            viewBox="0 0 22 22"
+            fill="none"
+          >
+            <path
+              d="M11 1V21"
+              stroke="#D2FAE3"
+              strokeWidth="2"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+            />
+            <path
+              d="M21 11L11 21L1 11"
+              stroke="#D2FAE3"
+              strokeWidth="2"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+            />
+          </svg>
+        </div>
+      </div>
     </div>
   )
 }
