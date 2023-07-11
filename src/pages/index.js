@@ -3,13 +3,24 @@ import React, { useState, useRef, useEffect } from "react"
 const HomePage = () => {
   const [inputValue, setInputValue] = useState("")
   const [enteredValues, setEnteredValues] = useState([])
+  const [isExpanded, setIsExpanded] = useState(false)
+
   const inputRef = useRef(null)
   const messagesRef = useRef(null)
+
+  const handleToggle = () => {
+    setIsExpanded(!isExpanded)
+    // call scrollToBottom() in 200ms to wait for the collapse animation to finish
+    setTimeout(() => {
+      scrollToBottom()
+    }, 200)
+  }
 
   useEffect(() => {
     const handleKeyPress = (event) => {
       const { key, shiftKey, altKey, ctrlKey, metaKey } = event
-      const modifierKeysPressed = shiftKey || altKey || ctrlKey || metaKey
+      const capsLockActive = event.getModifierState("CapsLock")
+      const modifierKeysPressed = shiftKey || altKey || ctrlKey || metaKey || capsLockActive
 
       if (!inputRef.current || modifierKeysPressed || key === "Escape" || key === "Tab") {
         return
@@ -160,7 +171,12 @@ const HomePage = () => {
         </div>
         <div className="flex flex-col gap-[24px]">
           <p className="text-[32px] font-bold">What may I do for you?</p>
-          <div className="messages h-[36px] overflow-auto no-scrollbar" ref={messagesRef}>
+          <div
+            className={`messages transition-all ${
+              isExpanded ? "h-[400px]" : "h-[36px]"
+            } overflow-auto no-scrollbar`}
+            ref={messagesRef}
+          >
             <div className="entered-values transition-opacity ">
               {enteredValues.map((value, index) => (
                 <div key={index} className="entered-value">
@@ -176,6 +192,7 @@ const HomePage = () => {
               onChange={(event) => setInputValue(event.target.value)}
               ref={inputRef}
             />
+            <button onClick={handleToggle}>Toggle Height</button>
           </div>
         </div>
       </div>
