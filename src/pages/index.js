@@ -123,13 +123,21 @@ const HomePage = () => {
             <div className="collapse-title text-xl font-medium h-[60px] bg-[#F8F8F8] text-[20px]">
               ⏱️ Our tasks
             </div>
-            <div className="collapse-content bg-white">
+            <div className="collapse-content bg-white max-h-[350px] overflow-scroll no-scrollbar">
               <div className="h-[84px] py-[20px]">
                 <p className="text-[16px]">Send FLOW to Kristin</p>
                 <p className="text-[14px] text-[#959595]">9th July, 11:00 AM</p>
               </div>
               <div className="h-[84px] py-[20px]">
                 <p className="text-[16px]">AIRDROP NFTS</p>
+                <p className="text-[14px] text-[#959595]">Everyday, 11:00 AM</p>
+              </div>
+              <div className="h-[84px] py-[20px]">
+                <p className="text-[16px]">Recommend NFTs under 4FLOW</p>
+                <p className="text-[14px] text-[#959595]">Everyday, 11:00 AM</p>
+              </div>
+              <div className="h-[84px] py-[20px]">
+                <p className="text-[16px]">Recommend NFTs under 4FLOW</p>
                 <p className="text-[14px] text-[#959595]">Everyday, 11:00 AM</p>
               </div>
               <div className="h-[84px] py-[20px]">
@@ -144,12 +152,18 @@ const HomePage = () => {
             <div className="collapse-title text-xl font-medium h-[60px] bg-[#F8F8F8] text-[20px]">
               🥷 Know about AGENT
             </div>
-            <div className="collapse-content bg-white">
+            <div className="collapse-content bg-white max-h-[300px] overflow-scroll no-scrollbar">
               <div className="h-[60px] py-[20px]">
                 <p className="text-[16px]">Know wallet health</p>
               </div>
               <div className="h-[60px] py-[20px]">
                 <p className="text-[16px]">BUY A NFT</p>
+              </div>
+              <div className="h-[60px] py-[20px]">
+                <p className="text-[16px]">Send FLOW</p>
+              </div>
+              <div className="h-[60px] py-[20px]">
+                <p className="text-[16px]">Set budget for scouting</p>
               </div>
               <div className="h-[60px] py-[20px]">
                 <p className="text-[16px]">Send FLOW</p>
