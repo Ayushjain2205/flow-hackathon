@@ -192,10 +192,13 @@ const HomePage = () => {
               onChange={(event) => setInputValue(event.target.value)}
               ref={inputRef}
             />
-            <button onClick={handleToggle}>Toggle Height</button>
           </div>
         </div>
       </div>
+      <div
+        className="w-[87px] h-[87px] bg-[#262626] rounded-full fixed bottom-[27px] right-[42px] cursor-pointer"
+        onClick={handleToggle}
+      ></div>
     </div>
   )
 }
