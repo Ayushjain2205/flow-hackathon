@@ -7,6 +7,16 @@ const HomePage = () => {
   const [enteredValues, setEnteredValues] = useState([])
   const [isExpanded, setIsExpanded] = useState(false)
 
+  const [taskPanel, setTaskPanel] = useState(true)
+  const [agentPanel, setAgentPanel] = useState(true)
+
+  const toggleTaskPanel = () => {
+    setTaskPanel(!taskPanel)
+  }
+  const toggleAgentPanel = () => {
+    setAgentPanel(!agentPanel)
+  }
+
   const inputRef = useRef(null)
   const messagesRef = useRef(null)
 
@@ -119,9 +129,12 @@ const HomePage = () => {
         <div className="flex flex-col gap-[32px]">
           {/* Collapse */}
           <div className="collapse bg-base-200 w-[310px] rounded-[18px]">
-            <input type="checkbox" />
-            <div className="collapse-title text-xl font-medium h-[60px] bg-[#F8F8F8] text-[20px]">
-              ⏱️ Our tasks
+            <input type="checkbox" onChange={toggleTaskPanel} checked={taskPanel} />
+            <div className="collapse-title flex flex-row w-[310px] gap-[10px] justify-between text-xl font-medium h-[60px] bg-[#F8F8F8] text-[20px] pr-[16px]">
+              <div> ⏱️ Our tasks</div>
+              <div>
+                {taskPanel ? <img src="/minus.svg" alt="" /> : <img src="/plus.svg" alt="" />}
+              </div>
             </div>
             <div className="collapse-content bg-white max-h-[350px] overflow-scroll no-scrollbar">
               <div className="h-[84px] py-[20px]">
@@ -148,9 +161,12 @@ const HomePage = () => {
           </div>
 
           <div className="collapse bg-base-200 w-[310px] rounded-[18px]">
-            <input type="checkbox" />
-            <div className="collapse-title text-xl font-medium h-[60px] bg-[#F8F8F8] text-[20px]">
-              🥷 Know about AGENT
+            <input type="checkbox" onChange={toggleAgentPanel} checked={agentPanel} />
+            <div className="collapse-title flex flex-row w-[310px] gap-[10px] justify-between text-xl font-medium h-[60px] bg-[#F8F8F8] text-[20px] pr-[16px]">
+              <div> 🥷 Know about AGENTs</div>
+              <div>
+                {agentPanel ? <img src="/minus.svg" alt="" /> : <img src="/plus.svg" alt="" />}
+              </div>
             </div>
             <div className="collapse-content bg-white max-h-[300px] overflow-scroll no-scrollbar">
               <div className="h-[60px] py-[20px]">
