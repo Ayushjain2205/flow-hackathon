@@ -73,7 +73,9 @@ const HomePage = () => {
               tabIndex={0}
               className="flex flex-row items-center gap-[9px] m-[10px] cursor-pointer"
             >
-              <div className="h-[56px] w-[56px] border border-black rounded-full"></div>
+              <div className="h-[56px] w-[56px] border border-black rounded-full flex flex-col items-center justify-center">
+                <img src="/avatar.svg" alt="" />
+              </div>
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 width="24"
