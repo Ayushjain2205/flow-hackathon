@@ -1,6 +1,7 @@
 import React, { useState, useRef, useEffect } from "react"
 import Switch from "../components/Switch"
 import Realtime from "../components/Realtime"
+import Template from "../components/Template"
 
 const HomePage = () => {
   const [inputValue, setInputValue] = useState("")
@@ -31,7 +32,7 @@ const HomePage = () => {
   }
 
   const setOutput = () => {
-    const newContent = <div className="h-[100px] w-[100px] bg-white"></div>
+    const newContent = <Template template="Buy" />
     setOutputContent(newContent)
   }
 
