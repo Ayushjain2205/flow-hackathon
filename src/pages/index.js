@@ -14,6 +14,8 @@ const HomePage = () => {
   const [outputContent, setOutputContent] = useState("")
   const [isInputDisabled, setIsInputDisabled] = useState(false)
 
+  const [keypressActive, setKeypressActive] = useState(true)
+
   const toggleTaskPanel = () => {
     setTaskPanel(!taskPanel)
   }
@@ -34,6 +36,7 @@ const HomePage = () => {
   const setOutput = () => {
     const newContent = <Template template="Buy" />
     setOutputContent(newContent)
+    setKeypressActive(false)
   }
 
   const clearOutput = () => {
@@ -44,30 +47,28 @@ const HomePage = () => {
 
   useEffect(() => {
     const handleKeyPress = (event) => {
-      const { key, shiftKey, altKey, ctrlKey, metaKey } = event
-      const capsLockActive = event.getModifierState("CapsLock")
-      const modifierKeysPressed = shiftKey || altKey || ctrlKey || metaKey || capsLockActive
-
-      if (!inputRef.current || modifierKeysPressed || key === "Escape" || key === "Tab") {
-        return
-      }
-
-      event.preventDefault()
-
-      if (key === "Enter") {
-        const newValue = inputRef.current.value.trim()
-        if (newValue !== "") {
-          setOutput()
-          setEnteredValues((prevValues) => [...prevValues, newValue])
-          setIsInputDisabled(true)
+      if (keypressActive) {
+        const { key, shiftKey, altKey, ctrlKey, metaKey } = event
+        const capsLockActive = event.getModifierState("CapsLock")
+        const modifierKeysPressed = shiftKey || altKey || ctrlKey || metaKey || capsLockActive
+        if (!inputRef.current || modifierKeysPressed || key === "Escape" || key === "Tab") {
+          return
         }
-      } else if (key === "Backspace") {
-        setInputValue((prevValue) => prevValue.slice(0, -1))
-      } else {
-        setInputValue((prevValue) => prevValue + key)
-      }
-
-      inputRef.current.focus()
+        event.preventDefault()
+        if (key === "Enter") {
+          const newValue = inputRef.current.value.trim()
+          if (newValue !== "") {
+            setOutput()
+            setEnteredValues((prevValues) => [...prevValues, newValue])
+            setIsInputDisabled(true)
+          }
+        } else if (key === "Backspace") {
+          setInputValue((prevValue) => prevValue.slice(0, -1))
+        } else {
+          setInputValue((prevValue) => prevValue + key)
+        }
+        inputRef.current.focus()
+      } else return
     }
 
     document.addEventListener("keydown", handleKeyPress)
@@ -225,7 +226,7 @@ const HomePage = () => {
               className="border-0 text-[#262626] text-opacity-50 outline-none bg-transparent text-2xl font-bold"
               value={inputValue}
               onChange={(event) => setInputValue(event.target.value)}
-              ref={inputRef}
+              ref={!isInputDisabled ? inputRef : null}
               disabled={isInputDisabled}
             />
           </div>
