@@ -11,6 +11,7 @@ const HomePage = () => {
   const [agentPanel, setAgentPanel] = useState(true)
 
   const [outputContent, setOutputContent] = useState("")
+  const [isInputDisabled, setIsInputDisabled] = useState(false)
 
   const toggleTaskPanel = () => {
     setTaskPanel(!taskPanel)
@@ -36,6 +37,8 @@ const HomePage = () => {
 
   const clearOutput = () => {
     setOutputContent("")
+    setInputValue("")
+    setIsInputDisabled(false)
   }
 
   useEffect(() => {
@@ -55,9 +58,8 @@ const HomePage = () => {
         if (newValue !== "") {
           setOutput()
           setEnteredValues((prevValues) => [...prevValues, newValue])
-          setInputValue("")
+          setIsInputDisabled(true)
         }
-        setInputValue("")
       } else if (key === "Backspace") {
         setInputValue((prevValue) => prevValue.slice(0, -1))
       } else {
@@ -223,6 +225,7 @@ const HomePage = () => {
               value={inputValue}
               onChange={(event) => setInputValue(event.target.value)}
               ref={inputRef}
+              disabled={isInputDisabled}
             />
           </div>
           <div className="output">{outputContent}</div>
