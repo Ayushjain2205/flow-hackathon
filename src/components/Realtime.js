@@ -16,7 +16,7 @@ const Realtime = () => {
       setData(Object.entries(jsonData))
     }
 
-    fetchData()
+    //fetchData()
   }, [])
 
   useEffect(() => {
