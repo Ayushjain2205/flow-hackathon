@@ -1,7 +1,12 @@
 import { useEffect, useState } from "react"
 
 const Realtime = () => {
-  const [data, setData] = useState([])
+  const [data, setData] = useState([
+    ["Volume(24h)", "64,267 FLOW"],
+    ["Total Volume", "738,470,246 FLOW"],
+    ["Total Transactions", "28,797,292"],
+    ["FLOW/USD", "$0.59"],
+  ])
   const [currentIndex, setCurrentIndex] = useState(0)
 
   useEffect(() => {
@@ -25,6 +30,7 @@ const Realtime = () => {
   }, [data])
 
   if (data.length === 0) {
+    console.log(data)
     return null // Render nothing if data is not yet available
   }
 

@@ -10,6 +10,8 @@ const HomePage = () => {
   const [taskPanel, setTaskPanel] = useState(true)
   const [agentPanel, setAgentPanel] = useState(true)
 
+  const [outputContent, setOutputContent] = useState("")
+
   const toggleTaskPanel = () => {
     setTaskPanel(!taskPanel)
   }
@@ -22,10 +24,18 @@ const HomePage = () => {
 
   const handleToggle = () => {
     setIsExpanded(!isExpanded)
-    // call scrollToBottom() in 200ms to wait for the collapse animation to finish
     setTimeout(() => {
       scrollToBottom()
     }, 200)
+  }
+
+  const setOutput = () => {
+    const newContent = <div className="h-[100px] w-[100px] bg-white"></div>
+    setOutputContent(newContent)
+  }
+
+  const clearOutput = () => {
+    setOutputContent("")
   }
 
   useEffect(() => {
@@ -43,6 +53,7 @@ const HomePage = () => {
       if (key === "Enter") {
         const newValue = inputRef.current.value.trim()
         if (newValue !== "") {
+          setOutput()
           setEnteredValues((prevValues) => [...prevValues, newValue])
           setInputValue("")
         }
@@ -214,14 +225,17 @@ const HomePage = () => {
               ref={inputRef}
             />
           </div>
-          <div className="output"></div>
+          <div className="output">{outputContent}</div>
         </div>
       </div>
       <div className="flex flex-row gap-[16px] fixed bottom-[24px] right-[32px]">
         <div className="flex flex-col items-center justify-center h-[48px] w-[487px] rounded-[12px] bg-white text-[24px] text-[#262626] text-opacity-80 ">
           What are the latest projects on Flow?
         </div>
-        <button className="h-[48px] w-[194px] rounded-[12px] bg-transparent border-[#0FA958] border-[2px] text-[24px] text-[#0FA958] ">
+        <button
+          className="h-[48px] w-[194px] rounded-[12px] bg-transparent border-[#0FA958] border-[2px] text-[24px] text-[#0FA958] "
+          onClick={clearOutput}
+        >
           Next prompt
         </button>
 
