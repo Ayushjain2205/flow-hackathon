@@ -8,8 +8,36 @@ import Debug from "./templates/Debug"
 import WalletHealth from "./templates/WalletHealth"
 
 const Template = ({ template }) => {
-  return <WalletHealth />
-  //return <Task />
+  let component
+
+  switch (template) {
+    case "SendMoney":
+      component = <SendMoney />
+      break
+    case "Reminder":
+      component = <Reminder />
+      break
+    case "BuyNFT":
+      component = <BuyNFT />
+      break
+    case "Task":
+      component = <Task />
+      break
+    case "SmartContract":
+      component = <SmartContract />
+      break
+    case "Debug":
+      component = <Debug />
+      break
+    case "WalletHealth":
+      component = <WalletHealth />
+      break
+    default:
+      component = <div>Oops, template not found!</div>
+      break
+  }
+
+  return component
 }
 
 export default Template

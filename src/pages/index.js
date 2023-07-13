@@ -44,8 +44,8 @@ const HomePage = () => {
     }, 200)
   }
 
-  const setOutput = () => {
-    const newContent = <Template template="Buy" />
+  const setOutput = (template) => {
+    const newContent = <Template template={template} />
     setOutputContent(newContent)
     setKeypressActive(false)
   }
@@ -69,7 +69,7 @@ const HomePage = () => {
         if (key === "Enter") {
           const newValue = inputRef.current.value.trim()
           if (newValue !== "") {
-            setOutput()
+            setOutput(newValue)
             setEnteredValues((prevValues) => [...prevValues, newValue])
             setIsInputDisabled(true)
           }
