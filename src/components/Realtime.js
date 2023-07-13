@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react"
 
-const Realtime = () => {
+const Realtime = ({ isDevMode }) => {
   const [data, setData] = useState([
     ["Volume(24h)", "64,267 FLOW"],
     ["Total Volume", "738,470,246 FLOW"],
@@ -34,10 +34,12 @@ const Realtime = () => {
     return null // Render nothing if data is not yet available
   }
 
+  const labelTextColor = isDevMode ? "text-[#D2FAE3]" : "text-[#262626]"
+
   return (
     <div className="flex flex-row justify-center items-center transition-opacity duration-500 ease-in-out">
-      <p className="text-[16px] font-bold text-[#262626]">{data[currentIndex][0]}&nbsp;</p>
-      <p className="text-[16px] font-bold text-[#262626]">:</p>
+      <p className={`text-[16px] font-bold ${labelTextColor}`}>{data[currentIndex][0]}&nbsp;</p>
+      <p className={`text-[16px] font-bold ${labelTextColor}`}>:</p>
       <p className="text-[16px] font-bold text-[#0FA958]">&nbsp; {data[currentIndex][1]}</p>
     </div>
   )

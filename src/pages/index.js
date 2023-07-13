@@ -111,7 +111,7 @@ const HomePage = () => {
         </div>
         <div className="flex-none">
           <div className="flex flex-row gap-[24px]">
-            <Realtime />
+            <Realtime isDevMode={isDevMode} />
             <Switch onToggle={handleToggleSwitch} />
             <div className="dropdown dropdown-end">
               <label
