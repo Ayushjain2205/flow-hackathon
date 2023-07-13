@@ -1,5 +1,6 @@
-import React from "react"
+import React, { useState } from "react"
 import TemplateHolder from "../layout.js/TemplateHolder"
+import { CopyBlock, vs2015 } from "react-code-blocks"
 
 const code = `import FungibleToken from 0xFungibleToken
 import NonFungibleToken from 0xNonFungibleToken
@@ -47,15 +48,38 @@ pub contract SampleNFT: NonFungibleToken.Contract {
  `
 
 const SmartContract = () => {
+  const [isDeploying, setIsDeploying] = useState(false)
+
+  const handleDeploy = () => {
+    setIsDeploying(true)
+  }
+
   return (
     <TemplateHolder title="Smart Contract">
       <div className="flex flex-col max-h-[540px] overflow-scroll no-scrollbar">
         <div className="w-[1032px] h-[450px] overflow-scroll no-scrollbar">
-          <pre className="text-black">{code}</pre>
+          <CopyBlock
+            text={code}
+            language="swift"
+            showLineNumbers={false}
+            theme={vs2015}
+            codeBlock
+          />
         </div>
         <div className="flex flex-row justify-end">
-          <button className="rounded-[10px] w-[197px] h-[48px] text-[#CAFBDF] font-bold text-[16px] bg-[#262626] mt-[32px]">
-            DEPLOY
+          <button
+            className="flex flex-row gap-[10px] items-center justify-center rounded-[10px] w-[197px] h-[48px] text-[#CAFBDF] font-bold text-[16px] bg-[#262626] mt-[32px]"
+            onClick={handleDeploy}
+            disabled={isDeploying}
+          >
+            {isDeploying ? (
+              <>
+                <span className="loading loading-spinner"></span>
+                DEPLOYING
+              </>
+            ) : (
+              "DEPLOY"
+            )}
           </button>
         </div>
       </div>
