@@ -4,9 +4,10 @@ import Reminder from "./templates/Reminder"
 import BuyNFT from "./templates/BuyNFT"
 import Task from "./templates/Task"
 import SmartContract from "./templates/SmartContract"
+import Debug from "./templates/Debug"
 
 const Template = ({ template }) => {
-  return <SmartContract />
+  return <Debug />
   //return <Task />
 }
 
