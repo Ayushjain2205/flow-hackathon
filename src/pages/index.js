@@ -16,6 +16,12 @@ const HomePage = () => {
 
   const [keypressActive, setKeypressActive] = useState(true)
 
+  const [isDevMode, setIsDevMode] = useState(false)
+
+  const handleToggleSwitch = (isChecked) => {
+    setIsDevMode(isChecked)
+  }
+
   const toggleTaskPanel = () => {
     setTaskPanel(!taskPanel)
   }
@@ -89,15 +95,18 @@ const HomePage = () => {
   }
 
   return (
-    <div className="min-h-screen px-[32px] py-[24px]">
-      <div className="navbar mb-[42px] p-0">
+    <div
+      className="min-h-screen px-[32px] py-[24px] bg-backround"
+      data-theme={isDevMode ? "devMode" : "normalMode"}
+    >
+      <div className="navbar mb-[42px] p-0 ">
         <div className="flex-1">
           <a className="font-bold text-[36px] text-[#0FA958]">FLOW-Agent</a>
         </div>
         <div className="flex-none">
           <div className="flex flex-row gap-[24px]">
             <Realtime />
-            <Switch />
+            <Switch onToggle={handleToggleSwitch} />
             <div className="dropdown dropdown-end">
               <label
                 tabIndex={0}

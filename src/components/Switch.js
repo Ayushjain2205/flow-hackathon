@@ -1,10 +1,12 @@
 import React, { useState } from "react"
 
-function Switch() {
+function Switch({ onToggle }) {
   const [checked, setChecked] = useState(false)
 
   const handleToggle = () => {
-    setChecked(!checked)
+    const updatedChecked = !checked
+    setChecked(updatedChecked)
+    onToggle(updatedChecked)
   }
 
   return (
