@@ -7,7 +7,7 @@ const Reminder = () => {
       <div className="flex flex-col max-h-[540px] overflow-scroll no-scrollbar">
         <input
           type="text"
-          className="input input-bordered border-[#DDD] rounded-[12px] w-[705px]"
+          className="input input-bordered border-[#DDD] rounded-[12px] w-[705px] text-black"
         />
         <span className="mt-[8px] text-[14px] text-opacity-50 text-[#262626]">
           You’ll receive updates on your registered emailID!

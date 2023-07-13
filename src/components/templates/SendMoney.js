@@ -45,16 +45,16 @@ const SendMoney = () => {
           <input
             type="number"
             placeholder="0"
-            className="h-[65px] w-[105px] text-[64px] text-center focus:outline-none"
+            className="h-[65px] w-[105px] text-[64px] text-center focus:outline-none text-black"
             name=""
             id=""
           />
-          <span className="w-[65px] text-center text-[24px]">FLOW</span>
+          <span className="w-[65px] text-center text-[24px] text-black">FLOW</span>
 
           <div className="flex flex-col gap-[16px]">
             <div className="form-control w-[306px] ">
               <label className="label">
-                <span className="label-text text-[16px]">To who?</span>
+                <span className="label-text text-[16px] text-black">To who?</span>
               </label>
               <input
                 type="text"
@@ -64,7 +64,7 @@ const SendMoney = () => {
 
             <div className="form-control w-[306px] ">
               <label className="label">
-                <span className="label-text text-[16px]">Any remarks?</span>
+                <span className="label-text text-[16px] text-black">Any remarks?</span>
               </label>
               <input
                 type="text"
@@ -85,7 +85,7 @@ const SendMoney = () => {
             <div className="flex flex-col items-center gap-[16px] h-[365px]">
               <div className="flex flex-col items-center justify-between mt-[60px]">
                 <Lottie loop animationData={loading} play style={{ width: 117, height: 117 }} />
-                <p className="text-[16px] text-center">{displayText}</p>
+                <p className="text-[16px] text-center text-black">{displayText}</p>
               </div>
               <button className="rounded-[10px] w-[306px] h-[48px] text-[#262626] font-bold text-[16px] bg-[#FFF] mt-auto self-end">
                 CANCEL
@@ -95,7 +95,9 @@ const SendMoney = () => {
         )}
       </div>
       {isConfirmClicked && (
-        <p className="text-[32px] font-bold mt-[24px]">Wohooo! Sending FLOW was successful</p>
+        <p className="text-[32px] font-bold mt-[24px] text-black">
+          Wohooo! Sending FLOW was successful
+        </p>
       )}
     </div>
   )

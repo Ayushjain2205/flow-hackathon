@@ -7,22 +7,22 @@ const Task = () => {
       <div className="flex flex-col max-h-[540px] overflow-scroll no-scrollbar">
         <input
           type="text"
-          className="input input-bordered border-[#DDD] rounded-[12px] w-[705px] focus:outline-none"
+          className="input input-bordered border-[#DDD] rounded-[12px] w-[705px] focus:outline-none text-black"
           value="Look for NFTs under 50 FLOW"
         />
         <div className="flex flex-row mt-[16px] gap-[9px]">
-          <div className="flex flex-col items-center justify-center rounded-[12px] w-[69px] h-[45px] bg-[#D2FAE3] text-[16px] font-bold">
+          <div className="flex flex-col items-center justify-center rounded-[12px] w-[69px] h-[45px] bg-[#D2FAE3] text-[16px] font-bold text-black">
             FLOW
           </div>
           <input
             type="number"
-            className="input input-bordered border-[#DDD] rounded-[12px] w-[104px] focus:outline-none"
+            className="input input-bordered border-[#DDD] rounded-[12px] w-[104px] focus:outline-none text-black"
             placeholder="Min"
           />
-          <div className="flex flex-col items-center justify-center">to</div>
+          <div className="flex flex-col items-center justify-center text-black">to</div>
           <input
             type="number"
-            className="input input-bordered border-[#DDD] rounded-[12px] w-[104px] focus:outline-none"
+            className="input input-bordered border-[#DDD] rounded-[12px] w-[104px] focus:outline-none text-black"
             placeholder="Max"
           />
         </div>

@@ -9,7 +9,7 @@ const BuyNFT = () => {
         <div className="flex flex-col max-h-[540px] overflow-scroll no-scrollbar">
           <div className="flex flex-row justify-between ">
             <div className="form-control w-[183px] ">
-              <select className="select select-bordered border-[#DDD] rounded-[12px] w-full">
+              <select className="select select-bordered border-[#DDD] rounded-[12px] w-full text-black">
                 <option selected>Sports</option>
                 <option>Star Wars</option>
                 <option>Harry Potter</option>
