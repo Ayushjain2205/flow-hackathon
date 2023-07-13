@@ -5,6 +5,7 @@ const NFTCard = () => {
     <a
       href="https://nft.flowverse.co/collections/TopShot/0x148f39d7db3ecf21/8159211"
       target="_blank"
+      rel="noreferrer"
     >
       <div className="flex flex-col h-[285px] w-[240px] bg-[#F6F6F6] rounded-[12px] shadow-NFT">
         <img
