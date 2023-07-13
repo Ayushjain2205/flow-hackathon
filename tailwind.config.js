@@ -13,6 +13,9 @@ module.exports = {
       boxShadow: {
         NFT: "0px 4px 40px 0px rgba(210, 250, 227, 0.30)",
       },
+      filter: {
+        invert: "invert(100%)",
+      },
     },
   },
   plugins: [require("daisyui")],

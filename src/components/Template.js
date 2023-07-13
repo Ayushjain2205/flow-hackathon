@@ -5,9 +5,10 @@ import BuyNFT from "./templates/BuyNFT"
 import Task from "./templates/Task"
 import SmartContract from "./templates/SmartContract"
 import Debug from "./templates/Debug"
+import WalletHealth from "./templates/WalletHealth"
 
 const Template = ({ template }) => {
-  return <Debug />
+  return <WalletHealth />
   //return <Task />
 }
 
