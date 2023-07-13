@@ -17,6 +17,11 @@ const HomePage = () => {
   const [keypressActive, setKeypressActive] = useState(true)
 
   const [isDevMode, setIsDevMode] = useState(false)
+  const chakraProps = {
+    css: {
+      colorMode: "normal",
+    },
+  }
 
   const handleToggleSwitch = (isChecked) => {
     setIsDevMode(isChecked)
@@ -98,6 +103,7 @@ const HomePage = () => {
     <div
       className="min-h-screen px-[32px] py-[24px] bg-backround"
       data-theme={isDevMode ? "devMode" : "normalMode"}
+      {...chakraProps}
     >
       <div className="navbar mb-[42px] p-0 ">
         <div className="flex-1">
@@ -133,16 +139,16 @@ const HomePage = () => {
               </label>
               <ul
                 tabIndex={0}
-                className="dropdown-content z-[1] menu p-2 shadow bg-base-100 rounded-[18px] w-52"
+                className="dropdown-content z-[1] menu p-2 shadow bg-white rounded-[18px] w-52"
               >
                 <li>
-                  <a>My Wallet</a>
+                  <a className="text-black hover:text-black">My Wallet</a>
                 </li>
                 <li>
-                  <a>History</a>
+                  <a className="text-black hover:text-black">History</a>
                 </li>
                 <li>
-                  <a>Logout</a>
+                  <a className="text-black hover:text-black">Logout</a>
                 </li>
               </ul>
             </div>
@@ -154,7 +160,7 @@ const HomePage = () => {
           {/* Collapse */}
           <div className="collapse bg-base-200 w-[310px] rounded-[18px]">
             <input type="checkbox" onChange={toggleTaskPanel} checked={taskPanel} />
-            <div className="collapse-title flex flex-row w-[310px] gap-[10px] justify-between text-xl font-medium h-[60px] bg-[#F8F8F8] text-[20px] pr-[16px]">
+            <div className="collapse-title flex flex-row w-[310px] gap-[10px] justify-between text-xl font-medium h-[60px] bg-[#F8F8F8] text-[20px] pr-[16px] text-[#262626]">
               <div> ⏱️ Our tasks</div>
               <div>
                 {taskPanel ? <img src="/minus.svg" alt="" /> : <img src="/plus.svg" alt="" />}
@@ -162,23 +168,23 @@ const HomePage = () => {
             </div>
             <div className="collapse-content bg-white max-h-[350px] overflow-scroll no-scrollbar">
               <div className="h-[84px] py-[20px]">
-                <p className="text-[16px]">Send FLOW to Kristin</p>
+                <p className="text-[16px] text-black">Send FLOW to Kristin</p>
                 <p className="text-[14px] text-[#959595]">9th July, 11:00 AM</p>
               </div>
               <div className="h-[84px] py-[20px]">
-                <p className="text-[16px]">AIRDROP NFTS</p>
+                <p className="text-[16px] text-black">AIRDROP NFTS</p>
                 <p className="text-[14px] text-[#959595]">Everyday, 11:00 AM</p>
               </div>
               <div className="h-[84px] py-[20px]">
-                <p className="text-[16px]">Recommend NFTs under 4FLOW</p>
+                <p className="text-[16px] text-black">Recommend NFTs under 4FLOW</p>
                 <p className="text-[14px] text-[#959595]">Everyday, 11:00 AM</p>
               </div>
               <div className="h-[84px] py-[20px]">
-                <p className="text-[16px]">Recommend NFTs under 4FLOW</p>
+                <p className="text-[16px] text-black">Recommend NFTs under 4FLOW</p>
                 <p className="text-[14px] text-[#959595]">Everyday, 11:00 AM</p>
               </div>
               <div className="h-[84px] py-[20px]">
-                <p className="text-[16px]">Recommend NFTs under 4FLOW</p>
+                <p className="text-[16px] text-black">Recommend NFTs under 4FLOW</p>
                 <p className="text-[14px] text-[#959595]">Everyday, 11:00 AM</p>
               </div>
             </div>
@@ -186,7 +192,7 @@ const HomePage = () => {
 
           <div className="collapse bg-base-200 w-[310px] rounded-[18px]">
             <input type="checkbox" onChange={toggleAgentPanel} checked={agentPanel} />
-            <div className="collapse-title flex flex-row w-[310px] gap-[10px] justify-between text-xl font-medium h-[60px] bg-[#F8F8F8] text-[20px] pr-[16px]">
+            <div className="collapse-title flex flex-row w-[310px] gap-[10px] justify-between text-xl font-medium h-[60px] bg-[#F8F8F8] text-[20px] pr-[16px] text-[#262626]">
               <div> 🥷 Know about AGENTs</div>
               <div>
                 {agentPanel ? <img src="/minus.svg" alt="" /> : <img src="/plus.svg" alt="" />}
@@ -194,22 +200,22 @@ const HomePage = () => {
             </div>
             <div className="collapse-content bg-white max-h-[300px] overflow-scroll no-scrollbar">
               <div className="h-[60px] py-[20px]">
-                <p className="text-[16px]">Know wallet health</p>
+                <p className="text-[16px] text-black">Know wallet health</p>
               </div>
               <div className="h-[60px] py-[20px]">
-                <p className="text-[16px]">BUY A NFT</p>
+                <p className="text-[16px] text-black">BUY A NFT</p>
               </div>
               <div className="h-[60px] py-[20px]">
-                <p className="text-[16px]">Send FLOW</p>
+                <p className="text-[16px] text-black">Send FLOW</p>
               </div>
               <div className="h-[60px] py-[20px]">
-                <p className="text-[16px]">Set budget for scouting</p>
+                <p className="text-[16px] text-black">Set budget for scouting</p>
               </div>
               <div className="h-[60px] py-[20px]">
-                <p className="text-[16px]">Send FLOW</p>
+                <p className="text-[16px] text-black">Send FLOW</p>
               </div>
               <div className="h-[60px] py-[20px]">
-                <p className="text-[16px]">Set budget for scouting</p>
+                <p className="text-[16px] text-black">Set budget for scouting</p>
               </div>
             </div>
           </div>
@@ -243,7 +249,7 @@ const HomePage = () => {
         </div>
       </div>
       <div className="flex flex-row gap-[16px] fixed bottom-[24px] right-[32px]">
-        <div className="flex flex-col items-center justify-center h-[48px] w-[487px] rounded-[12px] bg-white text-[24px] text-[#262626] text-opacity-80 ">
+        <div className="flex flex-col items-center justify-center h-[48px] w-[487px] rounded-[12px] bg-white text-[24px] text-black text-opacity-80 ">
           What are the latest projects on Flow?
         </div>
         <button
