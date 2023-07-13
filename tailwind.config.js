@@ -9,7 +9,11 @@ module.exports = {
     "./src/**/*.{js,ts,jsx,tsx,mdx}",
   ],
   theme: {
-    extend: {},
+    extend: {
+      boxShadow: {
+        NFT: "0px 4px 40px 0px rgba(210, 250, 227, 0.30)",
+      },
+    },
   },
   plugins: [require("daisyui")],
 }
