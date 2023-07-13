@@ -118,8 +118,8 @@ const HomePage = () => {
                 tabIndex={0}
                 className="flex flex-row items-center gap-[9px] m-[10px] cursor-pointer"
               >
-                <div className="h-[56px] w-[56px] border border-black rounded-full flex flex-col items-center justify-center">
-                  <img src="/avatar.svg" alt="" />
+                <div className="h-[56px] w-[56px] border border-primary rounded-full flex flex-col items-center justify-center">
+                  <img src={isDevMode ? "/avatar_dev.svg" : "/avatar.svg"} alt="" />
                 </div>
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -127,10 +127,11 @@ const HomePage = () => {
                   height="24"
                   viewBox="0 0 24 24"
                   fill="none"
+                  className="text-primary"
                 >
                   <path
                     d="M6 9L12 15L18 9"
-                    stroke="black"
+                    stroke="currentColor"
                     strokeWidth="2"
                     strokeLinecap="round"
                     strokeLinejoin="round"
@@ -260,7 +261,7 @@ const HomePage = () => {
         </button>
 
         <div
-          className="flex flex-col items-center justify-center w-[48px] h-[48px] bg-[#262626] rounded-full cursor-pointer"
+          className="flex flex-col items-center justify-center w-[48px] h-[48px] bg-primary rounded-full cursor-pointer"
           onClick={handleToggle}
         >
           <svg
@@ -272,14 +273,14 @@ const HomePage = () => {
           >
             <path
               d="M11 1V21"
-              stroke="#D2FAE3"
+              stroke={!isDevMode ? "#D2FAE3" : "#262626"}
               strokeWidth="2"
               strokeLinecap="round"
               strokeLinejoin="round"
             />
             <path
               d="M21 11L11 21L1 11"
-              stroke="#D2FAE3"
+              stroke={!isDevMode ? "#D2FAE3" : "#262626"}
               strokeWidth="2"
               strokeLinecap="round"
               strokeLinejoin="round"

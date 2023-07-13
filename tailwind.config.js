@@ -19,21 +19,16 @@ module.exports = {
   daisyui: {
     themes: [
       {
-        mytheme: {
-          primary: "#a991f7",
-          secondary: "#f6d860",
-          background: "#37cdbe",
-          neutral: "#3d4451",
-          "base-100": "#ffffff",
-        },
         normalMode: {
           background: "#D2FAE3",
+          arrow: "#D2FAE3",
           primary: "#262626",
           black: "#262626",
           secondary: "#959595",
         },
         devMode: {
           background: "#262626",
+          arrow: "#262626",
           primary: "#D2FAE3",
           black: "#262626",
         },
