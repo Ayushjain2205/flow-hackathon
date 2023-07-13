@@ -36,9 +36,9 @@ const Realtime = () => {
 
   return (
     <div className="flex flex-row justify-center items-center transition-opacity duration-500 ease-in-out">
-      <p className="text-[14px] font-bold text-[#262626]">{data[currentIndex][0]}&nbsp;</p>
-      <p className="text-[14px] font-bold text-[#262626]">:</p>
-      <p className="text-[14px] font-bold text-[#0FA958]">&nbsp; {data[currentIndex][1]}</p>
+      <p className="text-[16px] font-bold text-[#262626]">{data[currentIndex][0]}&nbsp;</p>
+      <p className="text-[16px] font-bold text-[#262626]">:</p>
+      <p className="text-[16px] font-bold text-[#0FA958]">&nbsp; {data[currentIndex][1]}</p>
     </div>
   )
 }
