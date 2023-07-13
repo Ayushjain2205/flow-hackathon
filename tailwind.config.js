@@ -21,14 +21,12 @@ module.exports = {
       {
         normalMode: {
           background: "#D2FAE3",
-          arrow: "#D2FAE3",
           primary: "#262626",
           black: "#262626",
           secondary: "#959595",
         },
         devMode: {
           background: "#262626",
-          arrow: "#262626",
           primary: "#D2FAE3",
           black: "#262626",
         },

@@ -107,7 +107,7 @@ const HomePage = () => {
     >
       <div className="navbar mb-[42px] p-0 ">
         <div className="flex-1">
-          <a className="font-bold text-[36px] text-[#0FA958]">FLOW-Agent</a>
+          <a className="font-bold text-[36px] text-[#0FA958]">FLOW.ai</a>
         </div>
         <div className="flex-none">
           <div className="flex flex-row gap-[24px]">
@@ -157,70 +157,131 @@ const HomePage = () => {
         </div>
       </div>
       <div className="flex flex-row gap-[64px]">
-        <div className="flex flex-col gap-[32px]">
-          {/* Collapse */}
-          <div className="collapse bg-base-200 w-[310px] rounded-[18px]">
-            <input type="checkbox" onChange={toggleTaskPanel} checked={taskPanel} />
-            <div className="collapse-title flex flex-row w-[310px] gap-[10px] justify-between text-xl font-medium h-[60px] bg-[#F8F8F8] text-[20px] pr-[16px] text-[#262626]">
-              <div> ⏱️ Our tasks</div>
-              <div>
-                {taskPanel ? <img src="/minus.svg" alt="" /> : <img src="/plus.svg" alt="" />}
+        {!isDevMode ? (
+          <div className="flex flex-col gap-[32px]">
+            {/* Collapse */}
+            <div className="collapse bg-white w-[310px] rounded-[18px]">
+              <input type="checkbox" onChange={toggleTaskPanel} checked={taskPanel} />
+              <div className="collapse-title flex flex-row w-[310px] gap-[10px] justify-between text-xl font-medium h-[60px] bg-[#F8F8F8] text-[20px] pr-[16px] text-[#262626]">
+                <div> ⏱️ Our tasks</div>
+                <div>
+                  {taskPanel ? <img src="/minus.svg" alt="" /> : <img src="/plus.svg" alt="" />}
+                </div>
+              </div>
+              <div className="collapse-content bg-white max-h-[350px] overflow-scroll no-scrollbar">
+                <div className="h-[84px] py-[20px]">
+                  <p className="text-[16px] text-black">Send FLOW to Kristin</p>
+                  <p className="text-[14px] text-[#959595]">9th July, 11:00 AM</p>
+                </div>
+                <div className="h-[84px] py-[20px]">
+                  <p className="text-[16px] text-black">AIRDROP NFTS</p>
+                  <p className="text-[14px] text-[#959595]">Everyday, 11:00 AM</p>
+                </div>
+                <div className="h-[84px] py-[20px]">
+                  <p className="text-[16px] text-black">Recommend NFTs under 4FLOW</p>
+                  <p className="text-[14px] text-[#959595]">Everyday, 11:00 AM</p>
+                </div>
+                <div className="h-[84px] py-[20px]">
+                  <p className="text-[16px] text-black">Recommend NFTs under 4FLOW</p>
+                  <p className="text-[14px] text-[#959595]">Everyday, 11:00 AM</p>
+                </div>
+                <div className="h-[84px] py-[20px]">
+                  <p className="text-[16px] text-black">Recommend NFTs under 4FLOW</p>
+                  <p className="text-[14px] text-[#959595]">Everyday, 11:00 AM</p>
+                </div>
               </div>
             </div>
-            <div className="collapse-content bg-white max-h-[350px] overflow-scroll no-scrollbar">
-              <div className="h-[84px] py-[20px]">
-                <p className="text-[16px] text-black">Send FLOW to Kristin</p>
-                <p className="text-[14px] text-[#959595]">9th July, 11:00 AM</p>
-              </div>
-              <div className="h-[84px] py-[20px]">
-                <p className="text-[16px] text-black">AIRDROP NFTS</p>
-                <p className="text-[14px] text-[#959595]">Everyday, 11:00 AM</p>
-              </div>
-              <div className="h-[84px] py-[20px]">
-                <p className="text-[16px] text-black">Recommend NFTs under 4FLOW</p>
-                <p className="text-[14px] text-[#959595]">Everyday, 11:00 AM</p>
-              </div>
-              <div className="h-[84px] py-[20px]">
-                <p className="text-[16px] text-black">Recommend NFTs under 4FLOW</p>
-                <p className="text-[14px] text-[#959595]">Everyday, 11:00 AM</p>
-              </div>
-              <div className="h-[84px] py-[20px]">
-                <p className="text-[16px] text-black">Recommend NFTs under 4FLOW</p>
-                <p className="text-[14px] text-[#959595]">Everyday, 11:00 AM</p>
-              </div>
-            </div>
-          </div>
 
-          <div className="collapse bg-base-200 w-[310px] rounded-[18px]">
-            <input type="checkbox" onChange={toggleAgentPanel} checked={agentPanel} />
-            <div className="collapse-title flex flex-row w-[310px] gap-[10px] justify-between text-xl font-medium h-[60px] bg-[#F8F8F8] text-[20px] pr-[16px] text-[#262626]">
-              <div> 🥷 Know about AGENTs</div>
-              <div>
-                {agentPanel ? <img src="/minus.svg" alt="" /> : <img src="/plus.svg" alt="" />}
+            <div className="collapse bg-white w-[310px] rounded-[18px]">
+              <input type="checkbox" onChange={toggleAgentPanel} checked={agentPanel} />
+              <div className="collapse-title flex flex-row w-[310px] gap-[10px] justify-between text-xl font-medium h-[60px] bg-[#F8F8F8] text-[20px] pr-[16px] text-[#262626]">
+                <div> 🥷 Know about AGENTs</div>
+                <div>
+                  {agentPanel ? <img src="/minus.svg" alt="" /> : <img src="/plus.svg" alt="" />}
+                </div>
               </div>
-            </div>
-            <div className="collapse-content bg-white max-h-[300px] overflow-scroll no-scrollbar">
-              <div className="h-[60px] py-[20px]">
-                <p className="text-[16px] text-black">Know wallet health</p>
-              </div>
-              <div className="h-[60px] py-[20px]">
-                <p className="text-[16px] text-black">BUY A NFT</p>
-              </div>
-              <div className="h-[60px] py-[20px]">
-                <p className="text-[16px] text-black">Send FLOW</p>
-              </div>
-              <div className="h-[60px] py-[20px]">
-                <p className="text-[16px] text-black">Set budget for scouting</p>
-              </div>
-              <div className="h-[60px] py-[20px]">
-                <p className="text-[16px] text-black">Send FLOW</p>
-              </div>
-              <div className="h-[60px] py-[20px]">
-                <p className="text-[16px] text-black">Set budget for scouting</p>
+              <div className="collapse-content bg-white max-h-[300px] overflow-scroll no-scrollbar">
+                <div className="h-[60px] py-[20px]">
+                  <p className="text-[16px] text-black">Know wallet health</p>
+                </div>
+                <div className="h-[60px] py-[20px]">
+                  <p className="text-[16px] text-black">BUY A NFT</p>
+                </div>
+                <div className="h-[60px] py-[20px]">
+                  <p className="text-[16px] text-black">Send FLOW</p>
+                </div>
+                <div className="h-[60px] py-[20px]">
+                  <p className="text-[16px] text-black">Set budget for scouting</p>
+                </div>
+                <div className="h-[60px] py-[20px]">
+                  <p className="text-[16px] text-black">Send FLOW</p>
+                </div>
+                <div className="h-[60px] py-[20px]">
+                  <p className="text-[16px] text-black">Set budget for scouting</p>
+                </div>
               </div>
             </div>
           </div>
-        </div>
+        ) : (
+          <div className="flex flex-col gap-[32px]">
+            {/* Collapse */}
+            <div className="collapse bg-white w-[310px] rounded-[18px]">
+              <input type="checkbox" onChange={toggleTaskPanel} checked={taskPanel} />
+              <div className="collapse-title flex flex-row w-[310px] gap-[10px] justify-between text-xl font-medium h-[60px] bg-[#F8F8F8] text-[20px] pr-[16px] text-[#262626]">
+                <div> 💻 Community updates</div>
+                <div>
+                  {taskPanel ? <img src="/minus.svg" alt="" /> : <img src="/plus.svg" alt="" />}
+                </div>
+              </div>
+              <div className="collapse-content bg-white max-h-[300px] overflow-scroll no-scrollbar">
+                <div className="h-[60px] py-[20px]">
+                  <p className="text-[16px] text-black">Bridging tokens to FLOW</p>
+                </div>
+                <div className="h-[60px] py-[20px]">
+                  <p className="text-[16px] text-black">New projects on Flow</p>
+                </div>
+                <div className="h-[60px] py-[20px]">
+                  <p className="text-[16px] text-black">New developer tools</p>
+                </div>
+              </div>
+            </div>
+
+            <div className="collapse bg-white w-[310px] rounded-[18px]">
+              <input type="checkbox" onChange={toggleAgentPanel} checked={agentPanel} />
+              <div className="collapse-title flex flex-row w-[310px] gap-[10px] justify-between text-xl font-medium h-[60px] bg-[#F8F8F8] text-[20px] pr-[16px] text-[#262626]">
+                <div> 🥷 Know about AGENTs</div>
+                <div>
+                  {agentPanel ? <img src="/minus.svg" alt="" /> : <img src="/plus.svg" alt="" />}
+                </div>
+              </div>
+              <div className="collapse-content bg-white max-h-[300px] overflow-scroll no-scrollbar">
+                <div className="h-[60px] py-[20px]">
+                  <p className="text-[16px] text-black">Know wallet health</p>
+                </div>
+                <div className="h-[60px] py-[20px]">
+                  <p className="text-[16px] text-black">BUY A NFT</p>
+                </div>
+                <div className="h-[60px] py-[20px]">
+                  <p className="text-[16px] text-black">Send FLOW</p>
+                </div>
+                <div className="h-[60px] py-[20px]">
+                  <p className="text-[16px] text-black">Set budget for scouting</p>
+                </div>
+              </div>
+            </div>
+
+            <div className=" bg-white w-[310px] h-[60px] rounded-[18px] flex flex-row items-center justify-between p-[14px]">
+              <span className="text-[16px] text-black">Discord</span>
+              <img src="/discord.svg" className="h-[24px] w-[24px]" alt="" />
+            </div>
+
+            <div className=" bg-white w-[310px] h-[60px] rounded-[18px] flex flex-row items-center justify-between p-[14px]">
+              <span className="text-[16px] text-black">Github</span>
+              <img src="/github.svg" className="h-[24px] w-[24px]" alt="" />
+            </div>
+          </div>
+        )}
+
         <div className="flex flex-col gap-[24px]">
           <p className="text-[32px] font-bold">What may I do for you?</p>
           <div
@@ -239,7 +300,7 @@ const HomePage = () => {
             <input
               type="text"
               placeholder="Type here..."
-              className="border-0 text-[#262626] text-opacity-50 outline-none bg-transparent text-2xl font-bold"
+              className="border-0 text-primary outline-none bg-transparent text-2xl font-bold"
               value={inputValue}
               onChange={(event) => setInputValue(event.target.value)}
               ref={!isInputDisabled ? inputRef : null}
