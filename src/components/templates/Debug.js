@@ -84,7 +84,7 @@ const Debug = () => {
                     />
                   </svg>
                   <span>
-                    <strong>Line 25 : </strong> expected token ' &#125; '
+                    <strong>Line 25 : </strong> expected token &apos; &#125; &apos;
                   </span>
                 </div>
                 <div className="alert alert-error">
