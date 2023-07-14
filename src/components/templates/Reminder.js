@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react"
 import TemplateHolder from "../layout.js/TemplateHolder"
 
-const Reminder = () => {
+const Reminder = ({ placeholder }) => {
   const [isSaving, setIsSaving] = useState(false)
   const [isSaved, setIsSaved] = useState(false)
 
@@ -22,6 +22,7 @@ const Reminder = () => {
         <div className="flex flex-col max-h-[540px] overflow-scroll no-scrollbar">
           <input
             type="text"
+            placeholder={placeholder ? placeholder : "Enter your reminder"}
             className="input input-bordered border-[#DDD] rounded-[12px] w-[705px] text-black"
           />
           <span className="mt-[8px] text-[14px] text-opacity-50 text-[#262626]">

@@ -6,6 +6,7 @@ import Task from "./templates/Task"
 import SmartContract from "./templates/SmartContract"
 import Debug from "./templates/Debug"
 import WalletHealth from "./templates/WalletHealth"
+import Drop from "./templates/Drop"
 
 const Template = ({ template }) => {
   let component
@@ -17,7 +18,7 @@ const Template = ({ template }) => {
     case "Reminder":
       component = <Reminder />
       break
-    case "BuyNFT":
+    case "Buy":
       component = <BuyNFT />
       break
     case "Task":
@@ -31,6 +32,9 @@ const Template = ({ template }) => {
       break
     case "WalletHealth":
       component = <WalletHealth />
+      break
+    case "Drop":
+      component = <Drop />
       break
     default:
       component = <div>Oops, template not found!</div>
