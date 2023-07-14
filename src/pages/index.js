@@ -57,7 +57,7 @@ const HomePage = () => {
   }
 
   useEffect(() => {
-    const handleKeyPress = (event) => {
+    const handleKeyPress = async (event) => {
       if (keypressActive) {
         const { key, shiftKey, altKey, ctrlKey, metaKey } = event
         const capsLockActive = event.getModifierState("CapsLock")
@@ -69,13 +69,32 @@ const HomePage = () => {
         if (key === "Enter") {
           const newValue = inputRef.current.value.trim()
           if (newValue !== "") {
-            setOutput(newValue)
-            setEnteredValues((prevValues) => [
-              ...prevValues,
-              { type: "user", message: newValue },
-              { type: "system", message: "The Agent Replied" },
-            ])
-            setIsInputDisabled(true)
+            try {
+              const response = await fetch("/api/functions", {
+                method: "POST",
+                headers: {
+                  "Content-Type": "application/json",
+                },
+                body: JSON.stringify({ query: newValue }),
+              })
+              if (response.ok) {
+                const data = await response.json()
+                console.log("API Response:", data)
+                setOutput(newValue)
+                setEnteredValues((prevValues) => [
+                  ...prevValues,
+                  { type: "user", message: newValue },
+                  { type: "system", message: "The Agent Replied" },
+                ])
+                setIsInputDisabled(true)
+              } else {
+                console.error("Error:", response.status)
+                // Handle the error
+              }
+            } catch (error) {
+              console.error("Error:", error)
+              // Handle the error
+            }
           }
         } else if (key === "Backspace") {
           setInputValue((prevValue) => prevValue.slice(0, -1))
@@ -83,7 +102,9 @@ const HomePage = () => {
           setInputValue((prevValue) => prevValue + key)
         }
         inputRef.current.focus()
-      } else return
+      } else {
+        return
+      }
     }
 
     document.addEventListener("keydown", handleKeyPress)
