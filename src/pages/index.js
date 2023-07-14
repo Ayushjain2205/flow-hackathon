@@ -70,7 +70,11 @@ const HomePage = () => {
           const newValue = inputRef.current.value.trim()
           if (newValue !== "") {
             setOutput(newValue)
-            setEnteredValues((prevValues) => [...prevValues, newValue])
+            setEnteredValues((prevValues) => [
+              ...prevValues,
+              { type: "user", message: newValue },
+              { type: "system", message: "The Agent Replied" },
+            ])
             setIsInputDisabled(true)
           }
         } else if (key === "Backspace") {
@@ -283,24 +287,31 @@ const HomePage = () => {
         )}
 
         <div className="flex flex-col gap-[24px]">
-          <p className="text-[32px] font-bold">What may I do for you?</p>
+          <p className="text-[32px] font-bold text-[#6B7B72]">What may I do for you?</p>
           <div
             className={`messages transition-all ${
-              isExpanded ? "h-[400px]" : "h-[36px]"
+              isExpanded ? "h-max" : "h-[40px]"
             } overflow-auto no-scrollbar`}
             ref={messagesRef}
           >
-            <div className="entered-values transition-opacity ">
+            <div className="entered-values transition-opacity w-[1032px] ">
               {enteredValues.map((value, index) => (
-                <div key={index} className="entered-value">
-                  {value}
+                <div
+                  key={index}
+                  className={`entered-value text-[32px] font-bold text-wrap  ${
+                    value.type === "user"
+                      ? "text-right ml-[160px] text-primary"
+                      : "text-left mr-[160px] text-[#7C9085]"
+                  }`}
+                >
+                  {value.message}
                 </div>
               ))}
             </div>
             <input
               type="text"
               placeholder="Type here..."
-              className="border-0 text-primary outline-none bg-transparent text-2xl font-bold"
+              className="border-0 text-primary outline-none bg-transparent text-[32px] font-bold w-[1032px]"
               value={inputValue}
               onChange={(event) => setInputValue(event.target.value)}
               ref={!isInputDisabled ? inputRef : null}
@@ -315,7 +326,7 @@ const HomePage = () => {
           What are the latest projects on Flow?
         </div>
         <button
-          className="h-[48px] w-[194px] rounded-[12px] bg-transparent border-[#0FA958] border-[2px] text-[24px] text-[#0FA958] "
+          className="h-[48px] w-[194px] rounded-[12px] bg-background border-[#0FA958] border-[2px] text-[24px] text-[#0FA958] "
           onClick={clearOutput}
         >
           Next prompt
@@ -331,6 +342,7 @@ const HomePage = () => {
             height="22"
             viewBox="0 0 22 22"
             fill="none"
+            className={isExpanded ? "rotate-180" : ""}
           >
             <path
               d="M11 1V21"
