@@ -2,7 +2,6 @@ import React, { useState, useEffect } from "react"
 import TemplateHolder from "../layout.js/TemplateHolder"
 import Lottie from "react-lottie-player"
 import loading from "../../helpers/loading.json"
-import { Img } from "@chakra-ui/react"
 
 const SendMoney = () => {
   const [isConfirmClicked, setIsConfirmClicked] = useState(false)
