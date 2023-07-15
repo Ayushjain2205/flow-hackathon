@@ -344,9 +344,6 @@ const HomePage = () => {
         </div>
       </div>
       <div className="flex flex-row gap-[16px] fixed bottom-[24px] right-[32px]">
-        <div className="flex flex-col items-center justify-center h-[48px] w-[487px] rounded-[12px] bg-white text-[24px] text-black text-opacity-80 ">
-          What are the latest projects on Flow?
-        </div>
         <button
           className="h-[48px] w-[194px] rounded-[12px] bg-background border-[#0FA958] border-[2px] text-[24px] text-[#0FA958] "
           onClick={clearOutput}
