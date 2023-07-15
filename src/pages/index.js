@@ -20,7 +20,10 @@ const HomePage = () => {
 
   useEffect(() => {
     if (session) {
-      router.push("/chat")
+      router.push({
+        pathname: "/chat",
+        query: { walletAddress: wallet?.address }, // Pass wallet address as query parameter
+      })
     }
   }, [session])
 

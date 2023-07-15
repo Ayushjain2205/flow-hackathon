@@ -1,10 +1,13 @@
 import React, { useState, useRef, useEffect } from "react"
+import { useRouter } from "next/router"
 import Switch from "../components/Switch"
 import Realtime from "../components/Realtime"
 import Template from "../components/Template"
 import Loader from "../components/Loader"
 
 const HomePage = () => {
+  const router = useRouter()
+
   const [inputValue, setInputValue] = useState("")
   const [enteredValues, setEnteredValues] = useState([])
   const [isExpanded, setIsExpanded] = useState(false)
@@ -24,6 +27,8 @@ const HomePage = () => {
       colorMode: "normal",
     },
   }
+
+  const { walletAddress } = router.query
 
   const handleToggleSwitch = (isChecked) => {
     setIsDevMode(isChecked)
@@ -169,16 +174,23 @@ const HomePage = () => {
               </label>
               <ul
                 tabIndex={0}
-                className="dropdown-content z-[1] menu p-2 shadow bg-white rounded-[18px] w-52"
+                className="dropdown-content z-[1] menu p-2 shadow bg-[#f5f5f5] rounded-[18px] w-[250px] "
               >
                 <li>
-                  <a className="text-black hover:text-black">My Wallet</a>
+                  <a
+                    href={`https://testnet.flowscan.org/account/${walletAddress}`}
+                    target="_blank"
+                    rel="noreferrer"
+                    className=" hover:text-black text-[#007BFF] text-[20px] p-[16px]"
+                  >
+                    {walletAddress}
+                  </a>
                 </li>
                 <li>
-                  <a className="text-black hover:text-black">History</a>
+                  <a className="text-black hover:text-black text-[20px] p-[16px]">Add Wallet</a>
                 </li>
                 <li>
-                  <a className="text-black hover:text-black">Logout</a>
+                  <a className="text-black hover:text-black text-[20px] p-[16px]">Logout</a>
                 </li>
               </ul>
             </div>
