@@ -70,6 +70,7 @@ const HomePage = () => {
           const newValue = inputRef.current.value.trim()
           if (newValue !== "") {
             try {
+              console.log(newValue)
               const response = await fetch("/api/functions", {
                 method: "POST",
                 headers: {
@@ -80,7 +81,7 @@ const HomePage = () => {
               if (response.ok) {
                 const data = await response.json()
                 console.log("API Response:", data)
-                setOutput(newValue)
+                setOutput(data.message)
                 setEnteredValues((prevValues) => [
                   ...prevValues,
                   { type: "user", message: newValue },

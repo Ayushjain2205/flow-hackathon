@@ -1,33 +1,46 @@
 export default async function handler(req, res) {
   try {
-    const { query } = req.query
+    const { query } = req.body
 
     // Log the request data
-    console.log("Request data:", req.body)
+    console.log("Request data:", query)
 
-    // Commenting out OpenAI API calls for now
-    // Replace this section with your OpenAI API code
+    const API_KEY = process.env.OPENAI_API_KEY
+    const API_URL = "https://api.openai.com/v1/chat/completions"
+    const requestOptions = {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${API_KEY}`,
+      },
+      body: JSON.stringify({
+        model: "gpt-3.5-turbo",
+        messages: [
+          {
+            role: "system",
+            content: `You are an AI assistant for the Flow blockchain, your job is to process the user query and check if it falls or is related to the query description in key1 of list of objects given below if it does then return key2 if it doesn't then instead of key2 return none
+            List:[
+            {"Buy an NFT on the Flow blockchain": "buyNFT"},
+            {"upcoming Airdrops on Flow blockchain": "Drop"},
+            {"Set Reminders about things to do": "Reminder"},
+            {"Perform task or activities like searching for NFTs": "Task"},
+            {"Check wallet health of a wallet address": "WalletHealth"},
+            {"Get news related to Flow Blockchain": "news"},
+            {"Generate a smart contract ": "SmartContract"},
+            {"Debug the code": "Debug"}
+            ]
+            Remember to return just the key2 or none`,
+          },
+          { role: "user", content: query },
+        ],
+      }),
+    }
+    const response = await fetch(API_URL, requestOptions)
+    const data = await response.json()
+    const generatedMessage = data.choices[0].message.content
+    console.log("Generated message:", generatedMessage)
 
-    // const API_KEY = process.env.CHATGPT_API_KEY;
-    // const API_URL = 'https://api.openai.com/v1/chat/completions';
-    // const requestOptions = {
-    //   method: 'POST',
-    //   headers: {
-    //     'Content-Type': 'application/json',
-    //     'Authorization': `Bearer ${API_KEY}`,
-    //   },
-    //   body: JSON.stringify({
-    //     model: 'gpt-3.5-turbo',
-    //     messages: [{ role: 'system', content: 'You are a helpful assistant.' }, { role: 'user', content: query }],
-    //   }),
-    // };
-    // const response = await fetch(API_URL, requestOptions);
-    // const data = await response.json();
-    // const generatedMessage = data.choices[0].message.content;
-
-    // res.status(200).json({ message: generatedMessage });
-
-    res.status(200).json({ message: "Request data logged successfully." })
+    res.status(200).json({ message: generatedMessage })
   } catch (error) {
     console.error("Error:", error)
     res.status(500).json({ error: "An error occurred" })
