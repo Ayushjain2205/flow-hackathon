@@ -17,7 +17,7 @@ const data = {
   model: "gpt-3.5-turbo",
 }
 
-export async function POST(req: NextRequest, res: NextResponse) {
+export async function POST(req, res) {
   try {
     const { query } = await req.json()
 
