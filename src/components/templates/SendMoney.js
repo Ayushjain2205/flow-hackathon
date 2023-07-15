@@ -2,10 +2,12 @@ import React, { useState, useEffect } from "react"
 import TemplateHolder from "../layout.js/TemplateHolder"
 import Lottie from "react-lottie-player"
 import loading from "../../helpers/loading.json"
+import { Img } from "@chakra-ui/react"
 
 const SendMoney = () => {
   const [isConfirmClicked, setIsConfirmClicked] = useState(false)
   const [displayText, setDisplayText] = useState("Sending your details")
+  const [isSendingComplete, setIsSendingComplete] = useState(false)
 
   const handleConfirmClick = () => {
     setIsConfirmClicked(true)
@@ -29,6 +31,7 @@ const SendMoney = () => {
 
         if (currentIndex === texts.length) {
           clearInterval(intervalId)
+          setIsSendingComplete(true)
         }
       }, 2500)
     }
@@ -82,21 +85,40 @@ const SendMoney = () => {
         </TemplateHolder>
         {isConfirmClicked && (
           <TemplateHolder title="Send Money">
-            <div className="flex flex-col items-center gap-[16px] h-[365px]">
+            <div className="flex flex-col items-center gap-[16px] h-[365px] w-[306px]">
               <div className="flex flex-col items-center justify-between mt-[60px]">
-                <Lottie loop animationData={loading} play style={{ width: 117, height: 117 }} />
-                <p className="text-[16px] text-center text-black">{displayText}</p>
+                {!isSendingComplete ? (
+                  <>
+                    <Lottie loop animationData={loading} play style={{ width: 117, height: 117 }} />
+                    <p className="text-[16px] text-center text-black">{displayText}</p>
+                  </>
+                ) : (
+                  <div className="flex flex-col items-center">
+                    <img src="/sent.svg" alt="" />
+                    <span className="text-[24px] text-black mt-[16px]">SENT!</span>
+                    <a
+                      href="https://testnet.flowscan.org/transaction/9aa292c366ea011aae6a2be6f9aeac0d56cb0a2ca1f7c4b858badef8015516da"
+                      target="_blank"
+                      rel="noreferrer"
+                      className="text-[16px] text-[#007BFF] mt-[32px] underline"
+                    >
+                      View on Flowscan
+                    </a>
+                  </div>
+                )}
               </div>
-              <button className="rounded-[10px] w-[306px] h-[48px] text-[#262626] font-bold text-[16px] bg-[#FFF] mt-auto self-end">
-                CANCEL
-              </button>
+              {!isSendingComplete && (
+                <button className="rounded-[10px] w-[306px] h-[48px] text-[#262626] font-bold text-[16px] bg-[#FFF] mt-auto self-end">
+                  CANCEL
+                </button>
+              )}
             </div>
           </TemplateHolder>
         )}
       </div>
-      {isConfirmClicked && (
-        <p className="text-[32px] font-bold mt-[24px] text-black">
-          Wohooo! Sending FLOW was successful
+      {isSendingComplete && (
+        <p className="text-[32px] mt-[24px] text-[#0FA958]">
+          ✅ Wohooo! Sending FLOW was successful
         </p>
       )}
     </div>
