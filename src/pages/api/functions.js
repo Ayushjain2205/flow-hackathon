@@ -35,12 +35,31 @@ export default async function handler(req, res) {
         ],
       }),
     }
+
     const response = await fetch(API_URL, requestOptions)
     const data = await response.json()
     const generatedMessage = data.choices[0].message.content
-    console.log("Generated message:", generatedMessage)
 
-    res.status(200).json({ message: generatedMessage })
+    if (generatedMessage === "None") {
+      // Make recursive call without the system prompt
+      const recursiveResponse = await fetch(API_URL, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${API_KEY}`,
+        },
+        body: JSON.stringify({
+          model: "gpt-3.5-turbo",
+          messages: [{ role: "user", content: query }],
+        }),
+      })
+      const recursiveData = await recursiveResponse.json()
+      const recursiveGeneratedMessage = recursiveData.choices[0].message.content
+
+      res.status(200).json({ message: recursiveGeneratedMessage })
+    } else {
+      res.status(200).json({ message: generatedMessage })
+    }
   } catch (error) {
     console.error("Error:", error)
     res.status(500).json({ error: "An error occurred" })
