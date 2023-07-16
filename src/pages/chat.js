@@ -201,7 +201,7 @@ const HomePage = () => {
         {!isDevMode ? (
           <div className="flex flex-col gap-[32px]">
             {/* Collapse */}
-            <div className="collapse bg-white w-[310px] rounded-[18px]">
+            <div className="collapse bg-white w-[310px] rounded-[18px] shadow-NFT">
               <input type="checkbox" onChange={toggleTaskPanel} checked={taskPanel} />
               <div className="collapse-title flex flex-row w-[310px] gap-[10px] justify-between text-xl font-medium h-[60px] bg-[#F8F8F8] text-[20px] pr-[16px] text-[#262626]">
                 <div> ⏱️ Our tasks</div>
@@ -209,10 +209,10 @@ const HomePage = () => {
                   {taskPanel ? <img src="/minus.svg" alt="" /> : <img src="/plus.svg" alt="" />}
                 </div>
               </div>
-              <div className="collapse-content bg-white max-h-[350px] overflow-scroll no-scrollbar">
+              <div className="collapse-content bg-white max-h-[350px] overflow-scroll no-scrollbar hover:cursor-pointer">
                 <div className="h-[84px] py-[20px]">
                   <p className="text-[16px] text-black">Send FLOW to Kristin</p>
-                  <p className="text-[14px] text-[#959595]">9th July, 11:00 AM</p>
+                  <p className="text-[14px] text-[#959595]">19th July, 11:00 AM</p>
                 </div>
                 <div className="h-[84px] py-[20px]">
                   <p className="text-[16px] text-black">AIRDROP NFTS</p>
@@ -220,38 +220,54 @@ const HomePage = () => {
                 </div>
                 <div className="h-[84px] py-[20px]">
                   <p className="text-[16px] text-black">Recommend NFTs under 4FLOW</p>
-                  <p className="text-[14px] text-[#959595]">Everyday, 11:00 AM</p>
+                  <p className="text-[14px] text-[#959595]">Everyday, 1:00 PM</p>
                 </div>
                 <div className="h-[84px] py-[20px]">
-                  <p className="text-[16px] text-black">Recommend NFTs under 4FLOW</p>
-                  <p className="text-[14px] text-[#959595]">Everyday, 11:00 AM</p>
-                </div>
-                <div className="h-[84px] py-[20px]">
-                  <p className="text-[16px] text-black">Recommend NFTs under 4FLOW</p>
-                  <p className="text-[14px] text-[#959595]">Everyday, 11:00 AM</p>
+                  <p className="text-[16px] text-black">Show new TopShot mints</p>
+                  <p className="text-[14px] text-[#959595]">Everyday, 12:00 AM</p>
                 </div>
               </div>
             </div>
 
-            <div className="collapse bg-white w-[310px] rounded-[18px]">
+            <div className="collapse bg-white w-[310px] rounded-[18px] shadow-NFT">
               <input type="checkbox" onChange={toggleAgentPanel} checked={agentPanel} />
               <div className="collapse-title flex flex-row w-[310px] gap-[10px] justify-between text-xl font-medium h-[60px] bg-[#F8F8F8] text-[20px] pr-[16px] text-[#262626]">
-                <div> 🥷 Know about AGENTs</div>
+                <div> 🥷 Know about AGENT</div>
                 <div>
                   {agentPanel ? <img src="/minus.svg" alt="" /> : <img src="/plus.svg" alt="" />}
                 </div>
               </div>
-              <div className="collapse-content bg-white max-h-[300px] overflow-scroll no-scrollbar">
-                <div className="h-[60px] py-[20px]">
+              <div className="collapse-content bg-white max-h-[300px] overflow-scroll no-scrollbar hover:cursor-pointer">
+                <div
+                  className="h-[60px] py-[20px]"
+                  onClick={() => {
+                    setInputValue("Tell me about my wallet health")
+                  }}
+                >
                   <p className="text-[16px] text-black">Know wallet health</p>
                 </div>
-                <div className="h-[60px] py-[20px]">
+                <div
+                  className="h-[60px] py-[20px]"
+                  onClick={() => {
+                    setInputValue("I want to buy a NBA TopShot NFT")
+                  }}
+                >
                   <p className="text-[16px] text-black">BUY A NFT</p>
                 </div>
-                <div className="h-[60px] py-[20px]">
+                <div
+                  className="h-[60px] py-[20px]"
+                  onClick={() => {
+                    setInputValue("I want to send money")
+                  }}
+                >
                   <p className="text-[16px] text-black">Send FLOW</p>
                 </div>
-                <div className="h-[60px] py-[20px]">
+                <div
+                  className="h-[60px] py-[20px]"
+                  onClick={() => {
+                    setInputValue("Look for NFTs under 4 FLOW")
+                  }}
+                >
                   <p className="text-[16px] text-black">Set budget for scouting</p>
                 </div>
                 <div className="h-[60px] py-[20px]">
@@ -266,7 +282,7 @@ const HomePage = () => {
         ) : (
           <div className="flex flex-col gap-[32px]">
             {/* Collapse */}
-            <div className="collapse bg-white w-[310px] rounded-[18px]">
+            <div className="collapse bg-white w-[310px] rounded-[18px] shadow-NFT">
               <input type="checkbox" onChange={toggleTaskPanel} checked={taskPanel} />
               <div className="collapse-title flex flex-row w-[310px] gap-[10px] justify-between text-xl font-medium h-[60px] bg-[#F8F8F8] text-[20px] pr-[16px] text-[#262626]">
                 <div> 💻 Community updates</div>
@@ -274,49 +290,69 @@ const HomePage = () => {
                   {taskPanel ? <img src="/minus.svg" alt="" /> : <img src="/plus.svg" alt="" />}
                 </div>
               </div>
-              <div className="collapse-content bg-white max-h-[300px] overflow-scroll no-scrollbar">
+              <div className="collapse-content bg-white max-h-[300px] overflow-scroll no-scrollbar hover:cursor-pointer">
                 <div className="h-[60px] py-[20px]">
-                  <p className="text-[16px] text-black">Bridging tokens to FLOW</p>
+                  <p className="text-[16px] text-black">Hybrid Custody Community Review</p>
                 </div>
                 <div className="h-[60px] py-[20px]">
-                  <p className="text-[16px] text-black">New projects on Flow</p>
+                  <p className="text-[16px] text-black">Verification node v0.31.11 upgrade</p>
                 </div>
                 <div className="h-[60px] py-[20px]">
-                  <p className="text-[16px] text-black">New developer tools</p>
+                  <p className="text-[16px] text-black">Consensus node v0.31.10 upgrade</p>
                 </div>
               </div>
             </div>
 
-            <div className="collapse bg-white w-[310px] rounded-[18px]">
+            <div className="collapse bg-white w-[310px] rounded-[18px] shadow-NFT">
               <input type="checkbox" onChange={toggleAgentPanel} checked={agentPanel} />
               <div className="collapse-title flex flex-row w-[310px] gap-[10px] justify-between text-xl font-medium h-[60px] bg-[#F8F8F8] text-[20px] pr-[16px] text-[#262626]">
-                <div> 🥷 Know about AGENTs</div>
+                <div> 🥷 Know about AGENT</div>
                 <div>
                   {agentPanel ? <img src="/minus.svg" alt="" /> : <img src="/plus.svg" alt="" />}
                 </div>
               </div>
-              <div className="collapse-content bg-white max-h-[300px] overflow-scroll no-scrollbar">
-                <div className="h-[60px] py-[20px]">
-                  <p className="text-[16px] text-black">Know wallet health</p>
+              <div className="collapse-content bg-white max-h-[300px] overflow-scroll no-scrollbar hover:cursor-pointer">
+                <div
+                  className="h-[60px] py-[20px]"
+                  onClick={() => {
+                    setInputValue("How do I write a function in Cadence?")
+                  }}
+                >
+                  <p className="text-[16px] text-black">Cadence guide</p>
                 </div>
-                <div className="h-[60px] py-[20px]">
-                  <p className="text-[16px] text-black">BUY A NFT</p>
+                <div
+                  className="h-[60px] py-[20px]"
+                  onClick={() => {
+                    setInputValue("Help me deploy a smart contract")
+                  }}
+                >
+                  <p className="text-[16px] text-black">Deploy smart contract</p>
                 </div>
-                <div className="h-[60px] py-[20px]">
-                  <p className="text-[16px] text-black">Send FLOW</p>
+                <div
+                  className="h-[60px] py-[20px]"
+                  onClick={() => {
+                    setInputValue("Help me debug my code")
+                  }}
+                >
+                  <p className="text-[16px] text-black">Debug Code</p>
                 </div>
-                <div className="h-[60px] py-[20px]">
-                  <p className="text-[16px] text-black">Set budget for scouting</p>
+                <div
+                  className="h-[60px] py-[20px]"
+                  onClick={() => {
+                    setInputValue("Find vulnerabilities in my code")
+                  }}
+                >
+                  <p className="text-[16px] text-black">Find Vulnerabilities</p>
                 </div>
               </div>
             </div>
 
-            <div className=" bg-white w-[310px] h-[60px] rounded-[18px] flex flex-row items-center justify-between p-[14px]">
+            <div className=" bg-white w-[310px] h-[60px] rounded-[18px] flex flex-row items-center justify-between p-[14px] shadow-NFT">
               <span className="text-[16px] text-black">Discord</span>
               <img src="/discord.svg" className="h-[24px] w-[24px]" alt="" />
             </div>
 
-            <div className=" bg-white w-[310px] h-[60px] rounded-[18px] flex flex-row items-center justify-between p-[14px]">
+            <div className=" bg-white w-[310px] h-[60px] rounded-[18px] flex flex-row items-center justify-between p-[14px] shadow-NFT">
               <span className="text-[16px] text-black">Github</span>
               <img src="/github.svg" className="h-[24px] w-[24px]" alt="" />
             </div>
