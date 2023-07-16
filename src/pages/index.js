@@ -30,8 +30,7 @@ const HomePage = () => {
   return (
     <div className="h-screen flex flex-col items-center justify-between align-center">
       <div className="flex flex-col m-auto items-center">
-        <img className="h-[177px] w-[164px]" src="/logo.png" alt="" />
-        <span className="font-bold text-[36px] text-[#0FA958] w-[164px] text-center">FLOW.AI</span>
+        <img className="h-[177px] w-[164px]" src="/logo.svg" alt="" />
         <button
           className="w-[249px] h-[60px] border border-[2px] border-[#0FA958] rounded-[10px] text-[24px] mt-[72px]"
           onClick={() => signIn()}
