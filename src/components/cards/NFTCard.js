@@ -3,7 +3,7 @@ import React from "react"
 const NFTCard = ({ name, img, number, price }) => {
   return (
     <a
-      href="https://nft.flowverse.co/collections/TopShot/0x148f39d7db3ecf21/8159211"
+      href="https://nft.flowverse.co/collections/TopShot/0x8091d741f8daf54e/41648775"
       target="_blank"
       rel="noreferrer"
     >

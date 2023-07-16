@@ -60,7 +60,8 @@ const SendMoney = () => {
               </label>
               <input
                 type="text"
-                className="input input-bordered border-[#DDD] rounded-[12px] w-full"
+                className="input input-bordered border-[#DDD] rounded-[12px] w-full text-black"
+                value="0xecfad18ba9582d4f"
               />
             </div>
 
@@ -70,7 +71,7 @@ const SendMoney = () => {
               </label>
               <input
                 type="text"
-                className="input input-bordered border-[#DDD] rounded-[12px] w-full"
+                className="input input-bordered border-[#DDD] rounded-[12px] w-full text-black"
               />
             </div>
           </div>

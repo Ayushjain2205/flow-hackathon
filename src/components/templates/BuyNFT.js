@@ -31,15 +31,15 @@ const BuyNFT = () => {
           </div>
           <div className="grid grid-cols-4 gap-[24px] mt-[18px]">
             <NFTCard
-              name="Deni Avdija Block"
-              img="https://assets.nbatopshot.com/media/2777543?width=256"
+              name="Clint Capela Rim"
+              img="https://assets.nbatopshot.com/media/41648775?width=256"
               number="#2893"
-              price="1 FLOW"
+              price="1 USD"
             />
             <NFTCard
               name="Julius Randle Mid-Range"
               img="https://assets.nbatopshot.com/media/39359200?width=256"
-              number="#4553"
+              number="##1112"
               price="1 FLOW"
             />
             <NFTCard

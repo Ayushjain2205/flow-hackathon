@@ -21,11 +21,12 @@ export default async function handler(req, res) {
             content: `You are an AI assistant for the Flow blockchain, your job is to process the user query and check if it falls or is related to the query description in key1 of list of objects given below if it does then return key2 if it doesn't then instead of key2 return none
             List:[
             {"Buy an NFT on the Flow blockchain": "buyNFT"},
+            {"Send money to a wallet address": "SendMoney"}
             {"upcoming Airdrops on Flow blockchain": "Drop"},
             {"Set Reminders about things to do": "Reminder"},
             {"Perform task or activities like searching for NFTs": "Task"},
             {"Check wallet health of a wallet address": "WalletHealth"},
-            {"Get news related to Flow Blockchain": "news"},
+            {"Get news related to Flow Blockchain": "News"},
             {"Generate a smart contract ": "SmartContract"},
             {"Debug the code": "Debug"}
             ]
