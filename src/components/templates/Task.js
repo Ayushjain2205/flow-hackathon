@@ -60,8 +60,8 @@ const Task = () => {
         </div>
       </TemplateHolder>
       {isSaved && (
-        <p className="text-[32px] font-bold mt-[24px] text-black">
-          Wohooo! Creating Task was successful
+        <p className="text-[32px] mt-[24px] text-[#0FA958]">
+          ✅ Wohooo! Creating Task was successful
         </p>
       )}
     </div>

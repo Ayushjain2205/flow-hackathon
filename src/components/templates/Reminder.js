@@ -46,8 +46,8 @@ const Reminder = ({ placeholder }) => {
         </div>
       </TemplateHolder>
       {isSaved && (
-        <p className="text-[32px] font-bold mt-[24px] text-black">
-          Wohooo! Creating Reminder was successful
+        <p className="text-[32px] mt-[24px] text-[#0FA958]">
+          ✅ Wohooo! Creating Reminder was successful
         </p>
       )}
     </div>

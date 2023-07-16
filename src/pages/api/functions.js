@@ -66,6 +66,6 @@ export default async function handler(req, res) {
   // }
 
   setTimeout(() => {
-    res.status(200).json({ message: "SmartContract" })
+    res.status(200).json({ message: "Task" })
   }, 1000)
 }
