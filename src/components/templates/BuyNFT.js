@@ -1,8 +1,15 @@
-import React from "react"
+import React, { useEffect, useState } from "react"
 import TemplateHolder from "../layout.js/TemplateHolder"
 import NFTCard from "../cards/NFTCard"
+import { getNFTData } from "../helpers"
 
 const BuyNFT = () => {
+  const [nftData, setNftData] = useState([])
+
+  useEffect(() => {
+    getNFTData().then((data) => setNftData(data))
+  }, [])
+
   return (
     <div>
       <TemplateHolder title="Buy NFT">
@@ -30,54 +37,16 @@ const BuyNFT = () => {
             </button>
           </div>
           <div className="grid grid-cols-4 gap-[24px] mt-[18px]">
-            <NFTCard
-              name="Clint Capela Rim"
-              img="https://assets.nbatopshot.com/media/41648775?width=256"
-              number="#2893"
-              price="1 USD"
-            />
-            <NFTCard
-              name="Julius Randle Mid-Range"
-              img="https://assets.nbatopshot.com/media/39359200?width=256"
-              number="##1112"
-              price="1 FLOW"
-            />
-            <NFTCard
-              name="Derrick White Block"
-              img="https://assets.nbatopshot.com/media/12307169?width=256"
-              number="#1129"
-              price="1 FLOW"
-            />
-            <NFTCard
-              name="Jalen Green 3 Pointer "
-              img="https://assets.nbatopshot.com/media/3599772?width=256"
-              number="#3409"
-              price="1 FLOW"
-            />
-            <NFTCard
-              name="Derrick White Block"
-              img="https://assets.nbatopshot.com/media/12307169?width=256"
-              number="#1129"
-              price="1 FLOW"
-            />
-            <NFTCard
-              name="Lebron James 3 Pointer "
-              img="https://assets.nbatopshot.com/media/3599772?width=256"
-              number="#3409"
-              price="1 FLOW"
-            />
-            <NFTCard
-              name="Deni Avdija Block"
-              img="https://assets.nbatopshot.com/media/2777543?width=256"
-              number="#2893"
-              price="1 FLOW"
-            />
-            <NFTCard
-              name="Jalen Green 3 Pointer "
-              img="https://assets.nbatopshot.com/media/39359200?width=256"
-              number="#3409"
-              price="1 FLOW"
-            />
+            {nftData.map((nft, index) => (
+              <NFTCard
+                key={index}
+                name={nft.name}
+                img={nft.img}
+                link={nft.link}
+                number={nft.number}
+                price={nft.price}
+              />
+            ))}
           </div>
         </div>
       </TemplateHolder>
