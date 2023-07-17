@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react"
 import TemplateHolder from "../layout.js/TemplateHolder"
 import NFTCard from "../cards/NFTCard"
-import { getNFTData } from "../helpers"
+import { getNFTData } from "../../helpers/getNFTData"
 
 const BuyNFT = () => {
   const [nftData, setNftData] = useState([])
