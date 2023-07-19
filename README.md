@@ -22,7 +22,7 @@ In Dev mode, users are able to :
 - Deploy smart contract 😳
 - Debug your code 😅
 - Receive all updates about FLOW 😚
-- Stay connected to the FLOW community and more.
+- Stay connected to the FLOW community and more!
 
 But what the most attractive aspect of the product, and what our team has also attempted to work hard at, is to make it super easy for the user to understand and navigate.
 
